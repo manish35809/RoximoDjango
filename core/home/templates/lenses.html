@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Lenses{% endblock %}
+
+{% block navlinks %}
+
+  {% for navlink in navlinks %}
+  <li class="nav-item">
+      <a class="nav-link" href={{ navlink.link }}>{{ navlink.name }}</a>
+  </li>
+  {% endfor %}
+
+{% endblock %}
+
+{% block start %}
+<!-- Projects Section-->
+<section class="py-5 bg-light">
+    <div class="container px-5 mb-5">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Comming Soon...</span></h1>
+        </div>
+    </div>
+</section>
+<!-- Call to action section-->
+<section class="py-5 bg-gradient-primary-to-secondary text-white">
+    <div class="container px-5 my-5">
+        <div class="text-center">
+            <h2 class="display-4 fw-bolder mb-4">Let's collaborate for clarity!</h2>
+            <a class='btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder' href='/contact'>Contact Us</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

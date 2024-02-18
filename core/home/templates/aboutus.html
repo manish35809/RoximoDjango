@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block navlinks %}
+
+  {% for navlink in navlinks %}
+  <li class="nav-item">
+      <a class="nav-link" href={{ navlink.link }}>{{ navlink.name }}</a>
+  </li>
+  {% endfor %}
+
+{% endblock %}
+
+{% block start %}
+
+<!-- Page Content-->
+<div class="container px-5 my-5">
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bolder mb-0">
+        <span class="text-gradient d-inline">About Us</span>
+      </h1>
+    </div>
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-11 col-xl-9 col-xxl-8">
+        <!-- Experience Section-->
+        <section>
+          <!-- Experience Card 1-->
+          <div class="card shadow border-0 rounded-4 mb-5">
+            <div class="card-body p-5">
+              <div class="row align-items-center gx-5">
+                <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                  <div class="bg-light p-4 rounded-4">
+                    <div class="text-primary fw-bolder mb-2">
+                      2020 - Present
+                    </div>
+                    <div class="small fw-bolder">Roximo Lenses</div>
+                    <div class="small text-muted">Clear Vision</div>
+                    <div class="small text-muted">
+                      Innovative Technology
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div class="text-center">
+                    In 2020, Roximo Lenses emerged with a vision to provide
+                    cutting-edge, high-quality lenses that not only enhance
+                    your vision but also redefine your eyewear experience.
+                    We take pride in offering modern lenses at the most
+                    affordable prices, making clear vision accessible to
+                    everyone.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Education Section-->
+        <section>
+          <h2 class="text-secondary fw-bolder mb-4">Our Values:</h2>
+          <!-- Education Card 1-->
+          <div class="card shadow border-0 rounded-4 mb-5">
+            <div class="card-body p-5">
+              <div class="row align-items-center gx-5">
+                <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                  <div class="bg-light p-4 rounded-4">
+                    <div class="text-secondary fw-bolder mb-2">
+                      Best in Quality
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div>
+                    Our lenses undergo rigorous testing to ensure
+                    unparalleled quality and clarity.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Education Card 2-->
+          <div class="card shadow border-0 rounded-4 mb-5">
+            <div class="card-body p-5">
+              <div class="row align-items-center gx-5">
+                <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                  <div class="bg-light p-4 rounded-4">
+                    <div class="text-secondary fw-bolder mb-2">
+                      Quick Service at Best Price
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div>
+                    We believe that prompt service and affordability should
+                    go hand in hand.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Education Card 3-->
+          <div class="card shadow border-0 rounded-4 mb-5">
+            <div class="card-body p-5">
+              <div class="row align-items-center gx-5">
+                <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                  <div class="bg-light p-4 rounded-4">
+                    <div class="text-secondary fw-bolder mb-2">Mission</div>
+                  </div>
+                </div>
+                <div class="col-lg-8">
+                  <div>
+                    To bring exceptional, affordable eyeglasses to every
+                    individual who wears specs.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Divider-->
+        <div class="pb-5"></div>
+        <!-- Skills Section-->
+        <section>
+          <!-- Skillset Card-->
+          <div class="card shadow border-0 rounded-4 mb-5">
+            <div class="card-body p-5">
+              <!-- Professional skills list-->
+              <div class="mb-5">
+                <div class="d-flex align-items-center mb-4">
+                  <div
+                    class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"
+                  >
+                    <i class="bi bi-tools"></i>
+                  </div>
+                  <h3 class="fw-bolder mb-0">
+                    <span class="text-gradient d-inline"
+                      >Our Lens Collection:</span
+                    >
+                  </h3>
+                </div>
+                <div class="row row-cols-1 row-cols-md-3 mb-4">
+                  {% for lensCollection in lensCollections %}
+                    <div class="col mb-4">
+                      <div
+                        class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                      >
+                        {{ lensCollection }}
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <!-- Languages list-->
+              <div class="mb-0">
+                <div class="d-flex align-items-center mb-4">
+                  <div
+                    class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"
+                  >
+                    <i class="bi bi-code-slash"></i>
+                  </div>
+                  <h3 class="fw-bolder mb-0">
+                    <span class="text-gradient d-inline">Premium Coatings:</span>
+                  </h3>
+                </div>
+                <div class="row row-cols-1 row-cols-md-3 mb-4">
+                  {% for coating in cotingDatas %}
+                    <div class="col mb-4">
+                      <div
+                        class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                      >
+                      {{coating}}
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
