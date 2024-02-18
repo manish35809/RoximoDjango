@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import ContactMessage
+from .models import ContactMessage, LensType
 
 navLinksData = [
             {
@@ -49,9 +49,6 @@ def aboutus(req):
     ]
     
     return render(req, "aboutus.html", context={ 'navlinks': navLinksData, 'lensCollections': lensCollectionData, 'cotingDatas': coatingData })
-
-def lenses(req):
-    return render(req, "lenses.html", context={'navlinks': navLinksData})
 
 def contact(req):
     
@@ -115,3 +112,17 @@ def contact(req):
                     'message': 'You Message Submitted Successfully.'
                 })
                 return render(req, "contact.html", {'navlinks': navLinksData, "popups": popupMessage})
+
+
+def lenses(req):
+    lensTypesData = LensType.objects.all()
+    
+    print(lensTypesData)
+    
+    context={'navlinks': navLinksData, 'lensTypesData': lensTypesData}
+    
+    return render(req, "lenses.html", context=context)
+
+def lenses_list(req, lens_type_id):
+    print(lens_type_id)
+    return render(req, "lensList.html", {'navlinks': navLinksData, 'id': lens_type_id })

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Lenses{% endblock %}
 
 {% block navlinks %}
@@ -13,14 +15,64 @@
 {% endblock %}
 
 {% block start %}
-<!-- Projects Section-->
-<section class="py-5 bg-light">
-    <div class="container px-5 mb-5">
-        <div class="text-center mb-5">
-            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Comming Soon...</span></h1>
+<style>
+    .card {
+      background: rgba(255,  255,  255,  0.1);
+      border-radius:  15px;
+      box-shadow:  0  4px  6px rgba(0,  0,  0,  0.1);
+      transition: transform  0.3s ease-in-out;
+    }
+    
+    .card:hover {
+      transform: scale(1.05);
+    }
+    
+    .card-img-top {
+      border-top-left-radius:  15px;
+      border-top-right-radius:  15px;
+    }
+    
+    .card-body {
+      padding:  1rem;
+    }
+    
+    .card-title {
+      font-weight: bold;
+      margin-bottom:  0.5rem;
+    }
+    
+    .card-text {
+      font-size:  0.9rem;
+    }
+
+</style>
+
+<div class="bg-light container pb-2 rounded px-4 mb-4">
+
+    {% include 'components/heading.html' with text="Stock Lenses" %}
+
+    <div class="my-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          {% for lensType in lensTypesData %}
+            <div class="col">
+              <div class="card h-100">
+                <img src="{% static lensType.image.url|slice:'7:' %}" class="card-img-top" alt="{{lensType.name}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{lensType.name}}</h5>
+                  <p class="card-text">{{lensType.description}}</p>
+                  <div class="d-flex justify-content-center mt-3">
+                    <a href="/lenses/{{lensType.id}}" class="btn btn-primary see-more">See More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
         </div>
-    </div>
-</section>
+      </div>
+    
+</div>
+
+
 <!-- Call to action section-->
 <section class="py-5 bg-gradient-primary-to-secondary text-white">
     <div class="container px-5 my-5">

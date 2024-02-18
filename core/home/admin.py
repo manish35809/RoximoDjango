@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactMessage, LensCoating, LensIndex, LensMaterial, PowerRange, LensFeatures, StockLens
+from .models import ContactMessage, LensCoating, LensIndex, LensMaterial, PowerRange, LensFeature, StockLens, LensType
 
 class LensMaterialAdmin(admin.ModelAdmin):
     list_display = ('name',)  # Ensure it's a tuple
@@ -22,11 +22,15 @@ class PowerRangeAdmin(admin.ModelAdmin):
 class ContactMessageAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone')
 
+class AdminLensTypes(admin.ModelAdmin):
+    list_display = ('name',)
+
 # Register models with their respective custom ModelAdmin classes
 admin.site.register(LensMaterial, LensMaterialAdmin)
 admin.site.register(LensCoating, LensCoatingAdmin)
 admin.site.register(LensIndex, LensIndexAdmin)
-admin.site.register(LensFeatures, LensFeaturesAdmin)
+admin.site.register(LensFeature, LensFeaturesAdmin)
 admin.site.register(StockLens, StockLensAdmin)
 admin.site.register(PowerRange, PowerRangeAdmin)
+admin.site.register(LensType, AdminLensTypes)
 admin.site.register(ContactMessage, ContactMessageAdmin)
