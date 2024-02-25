@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import ContactMessage, LensType
+from .models import ContactMessage, LensType, StockLens
 
 navLinksData = [
             {
@@ -124,5 +124,25 @@ def lenses(req):
     return render(req, "lenses.html", context=context)
 
 def lenses_list(req, lens_type_id):
-    print(lens_type_id)
-    return render(req, "lensList.html", {'navlinks': navLinksData, 'id': lens_type_id })
+    
+    stockLensesData = StockLens.objects.filter(type__id=lens_type_id)
+    
+    for lens in stockLensesData:
+        print("---------------------")
+        print(f"Brand: {lens.brand_name}")
+        print(f"Type: {lens.type}")
+        print(f"Index: {lens.lens_index}")
+        print(f"Material: {lens.lens_material}")
+        print(f"Coating: {lens.lens_coating}")
+        print(f"Description: {lens.description}")
+        print("Features:")
+        for feature in lens.features.all():
+            print(f"- {feature}")
+            print(f"  Image: {feature.image.url}")  # Access the feature image URL
+            print(f"  Description: {feature.description}")
+        print(f"Image: {lens.image.url}")  # Access the lens image URL
+        print("---------------------")
+    
+    context = {'navlinks': navLinksData, 'id': lens_type_id }
+    
+    return render(req, "lensList.html", context=context)

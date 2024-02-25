@@ -35,20 +35,20 @@ class LensIndex(models.Model):
 
     def __str__(self):
         return self.index
-
-class LensFeature(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='static/assets/features/')
-    description = models.TextField()
-
-    def __str__(self):
-        return self.name
     
 class LensType(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='static/assets/lens_types/')
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+class LensFeature(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='static/assets/features/')
     description = models.TextField()
 
     def __str__(self):
