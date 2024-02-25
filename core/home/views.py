@@ -125,7 +125,7 @@ def lenses(req):
 
 def lenses_list(req, lens_type_id):
     
-    stockLensesData = StockLens.objects.filter(type__id=lens_type_id)
+    stockLensesData = StockLens.objects.filter(type__id=lens_type_id).prefetch_related('features')
     
     for lens in stockLensesData:
         print("---------------------")
@@ -143,6 +143,6 @@ def lenses_list(req, lens_type_id):
         print(f"Image: {lens.image.url}")  # Access the lens image URL
         print("---------------------")
     
-    context = {'navlinks': navLinksData, 'id': lens_type_id }
+    context = {'navlinks': navLinksData, 'id': lens_type_id, 'lensesData' : stockLensesData }
     
     return render(req, "lensList.html", context=context)
